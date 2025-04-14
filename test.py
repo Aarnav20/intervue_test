@@ -32,11 +32,8 @@ try:
 
     # Step 3: Click the green "Login" button under "For Companies"
     try:
-        green_login_button = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.LINK_TEXT, "Login"))
-        )
-        green_login_button.click()
-        print("Clicked the green login button for Companies!")
+        button = driver.find_element(By.CSS_SELECTOR, '.AccessAccount-ColoredButton-Text[style*="background-color: #008d00"]')
+        button.click()
     except Exception as e:
         print(f"Error locating green login button: {e}")
         driver.save_screenshot("green_login_failure.png")
